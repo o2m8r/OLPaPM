@@ -1,6 +1,9 @@
 # XCELL
 Excel like web application
-
+# Changelogs
+          1. (April 9 2018)
+                    a.) Unique <input> names
+                    b.) Added a simple database
 # SCREENSHOTS<br>
 --> Start<br>
 <img src="https://raw.githubusercontent.com/theykneel/XCELL/master/images/XCELL1.png"><br>
@@ -15,5 +18,9 @@ Excel like web application
 <br>
 
 # TODO<br>
-          [+]database
-          [+]php codes
+          [+]database (DONE?)
+          [+]php codes (DONE?)
+          [+]added cells need to survive the refresh :v
+          [+]add ajax?
+          [+]display data from db
+          
