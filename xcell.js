@@ -38,7 +38,7 @@ function make(todo){
             var x = row[rowCount].insertCell(i);
             x.id = rowCount+headers[i-1];
             //x.innerHTML = "<input type=\"text\" name=\""+ rowCount+headers[i-1] +"\" value=\"new cell\">";
-            x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ rowCount +","+ i +"'><input type='text' name='field' onfocusout='if(this.value != \"\") { this.form.submit(); }' value='new cell X:"+ rowCount +",Y:"+ i +"'></form>";
+            x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ rowCount +","+ i +"'><input type='text' name='field' id='field_"+ rowCount +","+ i +"' onfocusout='if(this.value != \"\") { this.form.submit(); }' value=''></form>";
         }
  
         make('update');
@@ -72,7 +72,7 @@ function make(todo){
                 var x = row[i].insertCell(colCount);
                 x.id = i+headers[colCount-1];
                 //x.innerHTML = "<input type=\"text\" name=\""+ i+headers[colCount-1] +"\" value=\"new cell\">";
-                x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ i +","+ colCount +"'><input type='text' name='field' onfocusout='if(this.value != \"\") { this.form.submit(); }' value='new cell X:"+ i +",Y:"+ colCount +"'></form>";
+                x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ i +","+ colCount +"'><input type='text' name='field' id='field_"+ i +","+ colCount +"' onfocusout='if(this.value != \"\") { this.form.submit(); }' value=''></form>";
             }
             
             make('update');
