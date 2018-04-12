@@ -24,5 +24,6 @@ Excel like web application
           [+]php codes (DONE?)
           [+]added cells need to survive the refresh :v (DONE?)
           [+]add ajax?
-          [+]display data from db
+          [+]display data from db (DONE)
+          [+]row/s and column/s deletion deletes data
           
