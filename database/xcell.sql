@@ -1,6 +1,12 @@
 CREATE DATABASE xcell;
 USE xcell;
 
+----------------------------------------------------------------------------
+--
+--                                   TABLES
+--
+----------------------------------------------------------------------------
+
 CREATE TABLE users_tbl(
     UserID INT NOT NULL AUTO_INCREMENT,
     UserName VARCHAR(50) NOT NULL,
@@ -25,7 +31,17 @@ CREATE TABLE xcell_data_tbl(
     FOREIGN KEY (XCellID) REFERENCES  xcell_tbl(XCellID)
 );
 
+----------------------------------------------------------------------------
+--
+--                                 SAMPLE DATA
+--
+----------------------------------------------------------------------------
+
 INSERT INTO users_tbl(UserName) VALUES('Daniel');
+INSERT INTO xcell_data_tbl(Xrows, Ycolumns, FieldValue) VALUES('1','1','');
+INSERT INTO xcell_tbl(UserID, XCellDataID) VALUES('1','1');
+INSERT INTO xcell_data_tbl(Xrows, Ycolumns, FieldValue) VALUES('1','2','');
+INSERT INTO xcell_tbl(UserID, XCellDataID) VALUES('1','2');
 
 --SELECT MAX(Xrows),MAX(Ycolumns) FROM xcell_data_tbl;
 --SELECT * FROM xcell_data_tbl ORDER BY Xrows,Ycolumns;SELECT * FROM xcell_tbl;
