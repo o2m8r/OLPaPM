@@ -25,6 +25,7 @@ if($dbconnect){
 }
 */
 $msg1=$msg2 = "";
+
 #sample
 $_SESSION['userID'] = '1';
 $id = $_SESSION['userID'];
