@@ -6,10 +6,12 @@
 
 	    <link rel="stylesheet" href="style.css" type="text/css">
 	    <script src="xcell.js"></script>
-	    
+
     </head>
     
 <body onload="loadTable(<?php $results = mysqli_query($dbconnect,'SELECT MAX(xcell_tbl.RowCount) AS rows,MAX(xcell_tbl.ColCount) AS cols FROM xcell_tbl INNER JOIN users_tbl ON xcell_tbl.UserID = users_tbl.UserID INNER JOIN xcell_data_tbl ON xcell_tbl.XCellDataID = xcell_data_tbl.XCellDataID WHERE users_tbl.UserID = \'1\';');    while($row = $results->fetch_assoc()){ echo $row['rows'].','.$row['cols'];}?>);loadData();">
+<center><h3><b>NOTE:</b> Mawawala yung mga row or column na walang laman yung mga field pag nagrefresh. ;)</h3></center>
+<p id="response"></p><br>
 
 
 <input type="button" onclick="make('addRow');" value="+ row">
@@ -32,16 +34,10 @@
   <tr id="tr1">
     <td id="1">1</td>
     <td id="1A">
-        <form method="post">
-            <input type="hidden" name="coordinates" value="1,1">
-            <input type="text" name="field" id="field_1,1" onfocusout="if(this.value != '') { this.form.submit(); }">
-        </form>
+            <input type="text" name="field" id="field_1,1" onchange="sendData('1,1',this.value);">
     </td>
     <td id="1B">
-        <form method="post">
-            <input type="hidden" name="coordinates" value="1,2">
-            <input type="text" name="field" id="field_1,2" onfocusout="if(this.value != '') { this.form.submit(); }">
-        </form>
+            <input type="text" name="field" id="field_1,2" onchange="sendData('1,2',this.value);">
     </td>
   </tr>
 
