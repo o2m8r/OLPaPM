@@ -38,10 +38,11 @@ function make(todo){
             var x = row[rowCount].insertCell(i);
             x.id = rowCount+headers[i-1];
             //x.innerHTML = "<input type=\"text\" name=\""+ rowCount+headers[i-1] +"\" value=\"new cell\">";
-            x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ rowCount +","+ i +"'><input type='text' name='field' id='field_"+ rowCount +","+ i +"' onfocusout='if(this.value != \"\") { this.form.submit(); }' value=''></form>";
+            //x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ rowCount +","+ i +"'><input type='text' name='field' id='field_"+ rowCount +","+ i +"' onchange='if(this.value != \"\") { this.form.submit(); }' value=''></form>";
+            x.innerHTML = "<input type=\"text\" name=\"field\" id=\"field_"+ rowCount +","+ i +"\" onchange=\"sendData('"+ rowCount +","+ i +"',this.value);\">";
         }
  
-        make('update');
+            //make('update');
         
         
     }else if( todo === "deleteRow"){
@@ -49,8 +50,11 @@ function make(todo){
         if(rowCount == 2){
             alert('cannot erase last row'); //bawal magdelete pag isang row nalang :P
         }else{
+            deleteRowOrColumnData('row',rowCount-1); //delete ng lahat ng values na nasa roww
+            //alert(rowCount-1);
+
             table.deleteRow(-1);
-            make('update');
+            //make('update');
         }
    
     }else if( todo === "addCol"){
@@ -72,10 +76,11 @@ function make(todo){
                 var x = row[i].insertCell(colCount);
                 x.id = i+headers[colCount-1];
                 //x.innerHTML = "<input type=\"text\" name=\""+ i+headers[colCount-1] +"\" value=\"new cell\">";
-                x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ i +","+ colCount +"'><input type='text' name='field' id='field_"+ i +","+ colCount +"' onfocusout='if(this.value != \"\") { this.form.submit(); }' value=''></form>";
+                //x.innerHTML = "<form method='post'><input type='hidden' name='coordinates' value='"+ i +","+ colCount +"'><input type='text' name='field' id='field_"+ i +","+ colCount +"' onchange='if(this.value != \"\") { this.form.submit(); }' value=''></form>";
+                x.innerHTML = "<input type=\"text\" name=\"field\" id=\"field_"+ i +","+ colCount +"\" onchange=\"sendData('"+ i +","+ colCount +"',this.value);\">";
             }
             
-            make('update');
+            //make('update');
         }
 
     }else if( todo === "deleteCol"){
@@ -84,6 +89,9 @@ function make(todo){
         if(colCount == 2){
             alert('cannot delete last column');
         }else{
+        
+            deleteRowOrColumnData('column',colCount-1);
+            
             var tr = table.tHead.children[0];
             var th = document.getElementsByTagName('th')[colCount-1];
                 tr.removeChild(th);
@@ -91,7 +99,7 @@ function make(todo){
             for(var i = 1; i<=rowCount-1; i++){
                 var x = row[i].deleteCell(-1);
             }
-            make('update');
+            //make('update');
         }
     }else{
 
@@ -114,5 +122,55 @@ function loadTable(rows,columns){
     }
     
 }
+
+//AJAX
+function sendData(XY,val) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+    };
+    xhr.open("POST", "server.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("coordinates="+XY+"&field="+val);
+}
+function deleteRowOrColumnData(type,num){
+    //alert(num);
+    if(type === 'row'){
+    
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("response").innerHTML = this.responseText;
+            }
+        };
+        xhr.open("POST", "server.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("currentRows="+num);
+        
+    }else if(type === 'column'){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("response").innerHTML = this.responseText;
+            }
+        };
+        xhr.open("POST", "server.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("currentCols="+num);
+    
+    }else{
+        alert('error!');
+    }
+
+}
+
+
+
+
+
+
+
 
 
