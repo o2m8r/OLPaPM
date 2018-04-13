@@ -17,11 +17,13 @@ define('DB_PASS','');
 define('DB_NAME','xcell');
 
 $dbconnect = mysqli_connect( HOSTNAME, USERNAME, DB_PASS, DB_NAME );
+/*
 if($dbconnect){
     echo "<center>Connected.</center><br>";
 }else{
     echo "<center>Not connected.</center><br>";
 }
+*/
 $msg1=$msg2 = "";
 #sample
 $_SESSION['userID'] = '1';
@@ -36,6 +38,7 @@ if(isset($_POST['field'])){
     
     #for debugging
     echo 'Last data inserted:<br>Value: '.$fieldValue.'<br>X: '.$XCoordinates.'<br>Y: '.$YCoordinates.'<br>';
+
     
     $results = mysqli_query($dbconnect,"SELECT xcell_data_tbl.*, xcell_tbl.* FROM xcell_data_tbl INNER JOIN xcell_tbl ON xcell_data_tbl.XCellID = xcell_tbl.XCellID WHERE xcell_data_tbl.Xrows = '$XCoordinates' AND xcell_data_tbl.Ycolumns = '$YCoordinates';");
     
@@ -71,7 +74,30 @@ if(isset($_POST['field'])){
     
 }
 
+if(isset($_POST['currentRows']) || isset($_POST['currentCols'])){
+    
+    $rowCount = $_POST['currentRows'];
+    $colCount = $_POST['currentCols'];
+    
+    if(empty($rowCount)){
+        #echo "Col Count: ".$colCount;
+        $type = "Ycolumns";
+        $num = $colCount;
+    }
+    if(empty($colCount)){
+        #echo "Row Count: ".$rowCount;
+        $type = "Xrows";
+        $num = $rowCount;
+    }
 
+    if(!mysqli_query($dbconnect,"DELETE xcell_data_tbl.* FROM xcell_data_tbl INNER JOIN xcell_tbl ON xcell_tbl.XCellDataID = xcell_data_tbl.XCellDataID INNER JOIN users_tbl ON xcell_tbl.UserID = users_tbl.UserID WHERE users_tbl.UserID = '$id' AND xcell_data_tbl.$type = '$num';")){
+        echo "$type: ".$num." failure in deleting in db";
+    }else{
+        echo "$type: ".$num." deleted successfuly";
+    }
+
+    
+}
 
 
 
