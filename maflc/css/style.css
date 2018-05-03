@@ -1,0 +1,77 @@
+/*THIS APPLIES IN index.php*/
+
+
+.nav-bar{
+  grid-column: 1/10;
+}
+
+.login-bar{
+  grid-column: 10/13;
+}
+
+.nav-bar ul li{
+  display: inline-block;
+  list-style: none;
+}
+
+.nav-bar ul li a{
+  font-family: 'Century Gothic';
+  font-size: 24px;
+  color: black;
+  text-decoration: none;
+  margin: 0 40px;
+}
+
+.nav-bar ul li a:hover{
+  color: blue;
+}
+
+.login-bar ul li{
+  display:inline-block;
+  list-style: none;
+}
+
+.login-bar ul li a{
+  justify-self: right;
+  font-family: 'Century Gothic';
+  font-size: 24px;
+  color: black;
+  text-decoration: none;
+  margin: 0 25px;
+}
+
+.login-bar ul li a:hover{
+  color: blue;
+}
+
+.banner{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background-image: url(../img/maflcHeader.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title{
+  grid-column: 1/13;
+  justify-self: center;
+  font-size: 40px;
+  font-family: 'Century Gothic';
+  font-weight: bolder;
+  color: white;
+}
+
+.details{
+  grid-column: 5/9;
+  grid-row: 3/8;
+  color: white;
+  font-family: 'Century Gothic';
+}
+
+.portfolio-experiment{
+  grid-column: 6/9;
+  grid-row-start: 7;
+}
+
+/*THIS APPLIES IN index.php*/

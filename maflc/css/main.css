@@ -1,0 +1,10 @@
+body{
+  margin:0px;
+  min-height: 700px;
+  background-color: whitesmoke;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
