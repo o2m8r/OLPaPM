@@ -10,7 +10,7 @@
 
 <body>
 
-  <div class="grid">
+  <div class="grid-12">
 
     <div class="nav-bar">
       <ul>
