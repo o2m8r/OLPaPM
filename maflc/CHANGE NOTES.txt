@@ -1,4 +1,5 @@
 Changes
 
 Added:
-� Homepage : updated!
+• Homepage : updated!
+• CSSs': updated!
