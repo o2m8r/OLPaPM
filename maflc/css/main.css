@@ -4,7 +4,12 @@ body{
   background-color: whitesmoke;
 }
 
-.grid{
+.grid-12{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+}
+
+.grid-8{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
 }
