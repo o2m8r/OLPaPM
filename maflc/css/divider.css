@@ -1,0 +1,50 @@
+body{
+  margin: 0;
+  background-color: whitesmoke;
+  height: auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat( 12, 1fr);
+}
+
+.slice-1, .slice-2, .slice-3, .slice-4, .slice-5, .slice-6, .slice-7, .slice-8, .slice-9, .slice-10, .slice-11, .slice-12{
+    grid-row-start: 1;
+}
+.slice-1 {
+    grid-column-start: 1;
+}
+.slice-2 {
+    grid-column-start: 2;
+}
+.slice-3 {
+    grid-column-start: 3;
+}
+.slice-4 {
+    grid-column-start: 4;
+}
+.slice-5 {
+    grid-column-start: 5;
+}
+.slice-6 {
+    grid-column-start: 6;
+}
+.slice-7 {
+    grid-column-start: 7;
+}
+.slice-8 {
+    grid-column-start: 8;
+}
+.slice-9 {
+    grid-column-start: 9;
+}
+.slice-10 {
+    grid-column-start: 10;
+}
+.slice-11 {
+    grid-column-start: 11;
+}
+.slice-12 {
+    grid-column-start: 12;
+}

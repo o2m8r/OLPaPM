@@ -1,0 +1,77 @@
+/* This applies in header.php */
+
+.header{
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+}
+
+ul{
+  -webkit-padding-start: 0px;
+}
+ul li{
+  display: inline-block;
+  list-style: none;
+}
+
+ul li a{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-family: 'Century Gothic';
+  font-weight: bolder;
+  margin: 0px 30px;
+}
+
+ul li a:hover{
+  color: blue;
+}
+/* This applies in header.php */
+
+/* This applies in footer.php */
+.footer{
+  bottom:0;
+  position: relative;
+  background-color: #202020;
+  padding: 4px;
+  height: 110px;
+}
+
+.icons{
+  margin-top: 15px;
+  height:70px;
+  width: 70px;
+  grid-column-end: 3;
+}
+
+h2{
+  font-family: 'Century Gothic';
+  color: white;
+}
+
+.whitespace{
+  margin-top: 30px;
+}
+
+/* This applies in footer.php */
+
+/* This applies in index.php */
+h1, p{
+  font-family: 'Century Gothic';
+}
+
+p{
+  margin: 0px;
+}
+
+img{
+  height: 300px;
+  width: 500px;
+  padding: 0px 20px;
+  grid-column: 7/11;
+}
+
+.title{
+  grid-column: 3/7;
+}
+/* This applies in index.php */

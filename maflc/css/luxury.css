@@ -5,17 +5,17 @@
   padding: 0.7em calc(0.7em * 1.2);
   display: inline-block;
   position: relative;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   text-align: center;
-  width: 200px;
+  width: 300px;
 }
 .portfolio-experiment a .text {
   font-family: 'Century Gothic';
   font-weight: bold;
   transform: translate3d(0, 0.7em, 0);
   display: block;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
 }
 .portfolio-experiment a:after {
